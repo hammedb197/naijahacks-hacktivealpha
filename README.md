@@ -1,5 +1,5 @@
 
-**NaijaHacks Hackathon 2018**
+### NaijaHacks Hackathon 2018
 
 Team name : **Hacktivealpha**
 
