@@ -3,4 +3,6 @@ from django.shortcuts import render
 # Create your views here.
 
 def index(request):
-    return template('layout.html')
+
+    # context = {'home_page': home_page}
+    return render(request, 'phish_checker/index.html')
