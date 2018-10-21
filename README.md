@@ -17,3 +17,12 @@ Members :
 **Proposed Stack**: 
 1. Machine Learning/data science
 2. Backend development(django)
+
+**RUNNING FROM DEVELOPMENT**
+To run the web App locally on ur system to test your development, maked sure your in the directory 
+
+``(repo name)/hacktivealpha/phishchecker/``
+With that repo in your command prompt or terminal:
+You run
+
+``` python manage.py runserver ```
