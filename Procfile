@@ -1,2 +1,2 @@
 
-web: gunicorn hacktivealpha.wsgi
+web: gunicorn hacktivealpha.wsgi --log-file -
