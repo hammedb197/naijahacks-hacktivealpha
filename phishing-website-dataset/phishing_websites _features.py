@@ -1,13 +1,7 @@
-
-# coding: utf-8
-
-# In[79]:
-
-
 import re
 from urllib.request import urlopen
 from bs4 import BeautifulSoup as bs
-# -1 represent  phishing url while 1 represent not phishing url, returning zero means not sure
+# -1 represent  phishing url while 1 represent not phishing url, returning zero means Suspicious
 #length of urls
 
 #if url contains ip addresses instead of name http://125.98.3.123/fake.html
@@ -17,7 +11,7 @@ def ip_address(url):
         return -1  
     else:
         return 1
-print(ip_address('http://125.98.3.123/fake.html'))
+#print(ip_address('http://125.98.3.123/fake.html'))
 
 def url_length(url):
     if len(url)<54:
@@ -55,7 +49,7 @@ def url_redirect(url):
         return -1
     else:
         return 1
-print(url_redirect('https://www.legitimate.com//http://www.phishing.com'))
+#print(url_redirect('https://www.legitimate.com//http://www.phishing.com'))
    
 # Adding Prefix or Suffix Separated by (-) to the Domain
 def pref_suf(url):
@@ -69,7 +63,7 @@ def sub_domain(url):
      if(ip_address(url)==-1):
         match = re.search('[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}'
                     '(?:^|(?<=\s))(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))(?=\s|$)'
-                    '(?:[a-fA-F0-9]{1,4}:){7}[a-fA-F0-9]{1,4}',url).end(0)
+                    '(?:[a-fA-F0-9]{1,4}:){7}[a-fA-F0-9]{1,4}',url)
         pos = match.end(0)
         url = url[pos:]
         list = [x.start(0) for x in re.finditer('\.',url)]
@@ -105,5 +99,20 @@ def web_traffic(url):
    
 #print(web_traffic("facebook.com"))
 
+def main(url):
+    url = [(x.start(0), x.end(0)) for x in re.finditer('https://|http://|www.|https://www.|http://www.', hostname)]
+    features_extract = []
+    features_extract.append(ip_address(url))
+    features_extract.append(url_length(url))
+    features_extract.append(url_shortener(url))
+    features_extract.append(url_symbol(url))
+    features_extract.append(url_redirect(url))
+    features_extract.append(pref_suf(url))
+    features_extract.append(sub_domain(url))
+    features_extract.append(web_traffic(url))
     
+    return features_extract
+         
+    if __name__ == "__main__":
+        main()
 
