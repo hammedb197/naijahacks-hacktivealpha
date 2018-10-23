@@ -1,3 +1,9 @@
+
+# coding: utf-8
+
+# In[25]:
+
+
 import re
 from urllib.request import urlopen
 from bs4 import BeautifulSoup as bs
@@ -6,7 +12,9 @@ from bs4 import BeautifulSoup as bs
 
 #if url contains ip addresses instead of name http://125.98.3.123/fake.html
 def ip_address(url):
-    match=re.search('[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}',url)
+    match=re.search('[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}'
+                    '(?:^|(?<=\s))(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))(?=\s|$)'
+                    '(?:[a-fA-F0-9]{1,4}:){7}[a-fA-F0-9]{1,4}',url)
     if match:
         return -1  
     else:
@@ -99,10 +107,16 @@ def web_traffic(url):
    
 #print(web_traffic("facebook.com"))
 
-def main(url):
-    url = [(x.start(0), x.end(0)) for x in re.finditer('https://|http://|www.|https://www.|http://www.', hostname)]
+def main(url= 'www.iralan.com'):
+    hostname = url
+    h = [(x.start(0), x.end(0)) for x in re.finditer('https://|http://|www.|https://www.|http://www.', hostname)]
+    print(h)
+    ulen = int(len(h))
+    if ulen != 0:
+        y = h[0][1]
+        hostname = hostname[y:]
     features_extract = []
-    features_extract.append(ip_address(url))
+    #features_extract.append(ip_address(url))
     features_extract.append(url_length(url))
     features_extract.append(url_shortener(url))
     features_extract.append(url_symbol(url))
@@ -114,5 +128,5 @@ def main(url):
     return features_extract
          
     if __name__ == "__main__":
-        main()
+        main(url)
 
