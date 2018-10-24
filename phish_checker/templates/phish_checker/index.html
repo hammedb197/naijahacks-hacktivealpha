@@ -2,19 +2,85 @@
 
 
 {% block content %}
-
+{% load static %}
 	<!-- Header -->
 		<header>
 			<div class="container">
 				<div class="slider-container">
 					<div class="intro-text">
-						<div class="intro-lead-in">Welcome To MOOZ Themes!</div>
-						<div class="intro-heading">YOUR FAVORITE SOURCE OF FREE BOOTSTRAP THEMES</div>
-						<a href="#about" class="page-scroll btn btn-xl">Tell Me More</a>
+						<div class="intro-lead-in">Welcome To phish_checker</div>
+						<div class="intro-heading">Saving You from Cyber Criminals</div>
+						<a href="#about" class="page-scroll btn btn-xl">Learn more...</a>
 					</div>
 				</div>
 			</div>
 		</header>
+
+		<section id="try" class="container">
+			<div>
+				<h2 class="intro-heading text-center"><b>Enter Url</b></h5><br><br>
+				<div class="active-cyan-3 active-cyan-4 mb-4">
+					<input class="form-control border-secondary py-2" type="search" placeholder="Search" aria-label="Search">
+					<span class="input-group-btn">
+                        <button class="btn btn-info btn-lg center" type="button">
+                            <i class="glyphicon glyphicon-search"></i>
+                        </button>
+                    </span>
+				</div>
+			</div>
+		</section>
+
+	
+
+		<section id="team" class="">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12 text-center">
+						<div class="section-title">
+							<h2>Teams</h2>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-4 text-center">
+						<div class="card" style="width:400px">
+							<img class="card-img-bottom" src="{% static "/phish_checker/images/images.jpeg" %}" alt="Card image" style="width:70%">
+							<div class="card-body">
+							  <h4 class="card-title important">John Doe</h4>
+							  <p class="card-text"> .</p>
+							</div>
+						  </div>
+					</div>
+
+					<div class="col-md-4 text-center">
+						<div class="card" style="width:400px">
+							<img class="card-img-bottom" src="{% static "/phish_checker/images/images.jpeg" %}" alt="Card image" style="width:70%">
+							<div class="card-body">
+							  <h4 class="card-title">John Doe</h4>
+							  <p class="card-text"> .</p>
+							</div>
+						  </div>
+					</div>
+
+					<div class="col-md-4 text-center">
+						<div class="card" style="width:400px">
+							<img class="card-img-bottom" src="{% static "/phish_checker/images/images.jpeg" %}" alt="Card image" style="width:70%">
+							<div class="card-body">
+							  <h4 class="card-title">John Doe</h4>
+							  <p class="card-text"> .</p>
+							</div>
+						  </div>
+					</div>
+
+
+
+
+				</div>
+			
+			
+			</div>
+		</section>
 
 		<section id="about" class="dark-bg">
 			<div class="container">
@@ -22,50 +88,28 @@
 					<div class="col-lg-12 text-center">
 						<div class="section-title">
 							<h2>ABOUT</h2>
-							<p>A creative agency based on Candy Land, ready to boost your business with some beautifull templates. MOOZ Agency is one of the best in town see more you will be amazed.</p>
 						</div>
 					</div>
 				</div>
 				<div class="row">
+					
 					<!-- about module -->
-					<div class="col-md-3 text-center">
-						<div class="mz-module-about">
-							<i class="fa fa-briefcase ot-circle"></i>
-							<h3>Web Development</h3>
-							<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
-						</div>
-					</div>
-					<!-- end about module -->
-					<!-- about module -->
-					<div class="col-md-3 text-center">
+					<div class="col-md-12 text-center">
 						<div class="mz-module-about">
 							<i class="fa fa-photo ot-circle"></i>
-							<h3>Visualisation</h3>
-							<p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe</p>
+							<h3>Phish_checker</h3>
+							<p>phish_checker consists of computer programs that attempt to identify phishing content contained in websites, e-mail, or other forms used to accessing data (usually from the internet) and block the content, usually with a warning to the user (and often an option to view the content regardless).</p>
 						</div>
 					</div>
 					<!-- end about module -->
-					<!-- about module -->
-					<div class="col-md-3 text-center">
-						<div class="mz-module-about">
-							<i class="fa fa-camera-retro ot-circle"></i>
-							<h3>Photography</h3>
-							<p>Accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
-						</div>
-					</div>
-					<!-- end about module -->
-					<!-- about module -->
-					<div class="col-md-3 text-center">
-						<div class="mz-module-about">
-							<i class="fa fa-cube ot-circle"></i>
-							<h3>UI/UX Design</h3>
-							<p> Itaque earum rerum hic tenetur a sapiente, ut aut reiciendis maiores</p>
-						</div>
-					</div>
-					<!-- end about module -->
+					
+
+					
 				</div>
 			</div>
 			<!-- /.container -->
 		</section>
+
+		
 
 {% endblock %}
