@@ -18,6 +18,11 @@ Members :
 1. Machine Learning/data science
 2. Backend development(django)
 
+**RUNNING FROM PRODUCTION**
+Go to this Link to visit the App demo deployed to heroku:
+
+[link] https://phishchecker.herokuapp.com
+
 **RUNNING FROM DEVELOPMENT**
 To run the web App locally on ur system to test your development, maked sure your in the directory 
 
