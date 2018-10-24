@@ -31,6 +31,6 @@ With that repo in your command prompt or terminal:
 You run
 
 ``` python manage.py runserver ```
-Then go to your browser and upon the link to the app:
+Then go to your browser and open the link to the app:
 
-``` 127.0.0.1:8000/phishchecker/ ``` (This will route to the main page)
+``` 127.0.0.1:8000/ ``` (This will route to the main page on your localhost server)
