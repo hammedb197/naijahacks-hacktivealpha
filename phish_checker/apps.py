@@ -1,5 +1,5 @@
 from django.apps import AppConfig
-from sklearn.linear_model import joblib
+from sklearn.externals import joblib
 
 class PhishCheckerConfig(AppConfig):
     name = 'phish_checker'
